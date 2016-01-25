@@ -288,7 +288,7 @@ void read_from_serial() {
 
     incomingbyte = Serial.read();
 
-    if (incomingbyte == '0') {
+    if (incomingbyte == '0') { //turn all off
 
         Strip1.ColorSet(Strip1.noColor);
         Strip2.ColorSet(Strip1.noColor);
@@ -303,25 +303,20 @@ void read_from_serial() {
 
     } else if (incomingbyte == '1') {
 
-        Strip8.ColorSet(Strip1.yellowColor);
+        Strip1.Scanner( Strip1.Color(255, 255, 255), 1, 1 ); //start the forward animation
 
     } else if (incomingbyte == '2') {
 
-        Strip9.ColorSet(Strip1.yellowColor);
+        Strip10.Scanner( Strip1.Color(255, 255, 255), 1, -1); //start the reverse animation
 
     } else if (incomingbyte == '3') {
 
-        Strip10.ColorSet(Strip1.yellowColor);
-
     } else if (incomingbyte == '4') {
 
-    } else if (incomingbyte == '5') {
-
-      Strip1.Scanner( Strip1.Color(255, 255, 255), 1, 1 );
+    } else if (incomingbyte == '5') {      
 
     } else if (incomingbyte == '6') {
-
-      Strip10.Scanner( Strip1.Color(255, 255, 255), 1, -1);
+      
     }
   }
 }
